@@ -1,11 +1,31 @@
 import 'package:flutter_widgets/src/country_picker/models/country.dart';
 import 'package:flutter_widgets/src/country_picker/models/state.dart';
 import 'package:collection/collection.dart';
-
+import 'package:devicelocale/devicelocale.dart';
 part 'states.dart';
 
 class CountryUtils {
   CountryUtils._();
+
+//   static Country getCountryCodeByLocation(){
+//     String countryCode = '';
+//     try {
+//       final locale = await Devicelocale.currentLocale;
+
+//       if (locale != null && locale.length >= 5) {
+//         try {
+//           countryCode = locale.substring(3, 5);
+//          return CountryUtils.getCountryByCode(countryCode);
+//         } catch (e) {
+//           return CountryUtils.getCountryByCode('US');
+//         }
+//       }
+//     } catch (e) {
+//       print('Error when fetching user country: $e');
+//      return  CountryUtils.getCountryByCode('US');
+//     }
+// return CountryUtils.getCountryByCode(countryCode);
+//   }
 
   static Country getCountryByCode(String code) {
     return countries.firstWhere((e) => e.code == code);

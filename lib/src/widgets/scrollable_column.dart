@@ -18,6 +18,7 @@ class ScrollableColumn extends SafeAreaStatelessWidget {
   final String? restorationId;
   final ScrollViewKeyboardDismissBehavior keyboardDismissBehavior;
   final bool isScrollable;
+  final RefreshCallback? onRefresh;
 
   const ScrollableColumn({
     super.key,
@@ -36,6 +37,7 @@ class ScrollableColumn extends SafeAreaStatelessWidget {
     this.crossAxisAlignment = CrossAxisAlignment.center,
     required this.children,
     this.isScrollable = true,
+    this.onRefresh,
   }) : super(top: false, bottom: false, left: false, right: false);
 
   const ScrollableColumn.withSafeArea({
@@ -54,6 +56,7 @@ class ScrollableColumn extends SafeAreaStatelessWidget {
     this.mainAxisAlignment = MainAxisAlignment.start,
     this.crossAxisAlignment = CrossAxisAlignment.center,
     required this.children,
+    this.onRefresh,
     this.isScrollable = true,
     bool top = true,
     bool bottom = true,
@@ -87,6 +90,13 @@ class ScrollableColumn extends SafeAreaStatelessWidget {
     Widget child = isScrollable
         ? singleChildScrollView
         : Padding(padding: padding ?? EdgeInsets.zero, child: column);
+
+    child = onRefresh != null
+        ? RefreshIndicator(
+            onRefresh: onRefresh!,
+            child: child,
+          )
+        : child;
 
     return SafeArea(
       top: top,

@@ -9,6 +9,7 @@ export 'src/widgets/scrollable_column.dart';
 export 'src/widgets/state_ful_widget_wrapper.dart';
 export 'src/widgets/expanded_section.dart';
 export 'src/widgets/restart_widget.dart';
+export 'src/widgets/app_lifecycle_reactor.dart';
 
 export 'src/extensions/widget_ex.dart';
 
