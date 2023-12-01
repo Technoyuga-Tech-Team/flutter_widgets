@@ -1,7 +1,6 @@
 import 'package:flutter_widgets/src/country_picker/models/country.dart';
 import 'package:flutter_widgets/src/country_picker/models/state.dart';
 import 'package:collection/collection.dart';
-import 'package:devicelocale/devicelocale.dart';
 part 'states.dart';
 
 class CountryUtils {
